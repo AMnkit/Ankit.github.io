@@ -6,417 +6,421 @@
   <meta name="color-scheme" content="light dark" />
 
   <title>Dr. Ankit Mishra | Complex Systems & Network Dynamics</title>
-  <meta name="description" content="Dr. Ankit Mishra (Ph.D.) — Research Fellow at NTU Singapore. Complex systems, network dynamics, eigenvector localization, spectral statistics, routing strategies." />
-
-  <!-- Open Graph (nice previews when sharing links) -->
-  <meta property="og:title" content="Dr. Ankit Mishra | Complex Systems & Network Dynamics" />
-  <meta property="og:description" content="Research Fellow at NTU Singapore. Complex systems, network dynamics, eigenvector localization, spectral statistics, routing strategies." />
-  <meta property="og:type" content="website" />
+  <meta name="description" content="Dr. Ankit Mishra (Ph.D.) — Research Fellow at NTU Singapore. Complex systems, network dynamics, Anderson localization, Parrondo’s paradox, spectral statistics." />
 
   <style>
-    /* -----------------------------
-       Design system (CSS variables)
-       ----------------------------- */
     :root{
-      --bg: #0b0f17;
-      --panel: rgba(255,255,255,0.06);
-      --panel-2: rgba(255,255,255,0.08);
-      --text: rgba(255,255,255,0.90);
-      --muted: rgba(255,255,255,0.70);
-      --faint: rgba(255,255,255,0.55);
-      --border: rgba(255,255,255,0.12);
-      --shadow: 0 14px 40px rgba(0,0,0,0.35);
-      --accent: #7dd3fc;     /* sky */
-      --accent2: #a78bfa;    /* violet */
-      --good: #34d399;       /* green */
-      --warn: #fbbf24;       /* amber */
-      --radius: 18px;
-      --maxw: 1100px;
-      --pad: 22px;
-      --pad-lg: 34px;
+      --bg:#0b0f17;
+      --panel:rgba(255,255,255,0.06);
+      --panel2:rgba(255,255,255,0.085);
+      --text:rgba(255,255,255,0.92);
+      --muted:rgba(255,255,255,0.70);
+      --faint:rgba(255,255,255,0.55);
+      --border:rgba(255,255,255,0.12);
+      --shadow:0 18px 50px rgba(0,0,0,0.38);
+      --radius:18px;
+
+      --accent:#7dd3fc;     /* sky */
+      --accent2:#a78bfa;    /* violet */
+      --accent3:#34d399;    /* green */
+
+      --maxw:1100px;
+      --pad:22px;
+      --padlg:34px;
 
       --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
     }
 
-    /* Light mode override if user prefers light */
     @media (prefers-color-scheme: light){
       :root{
-        --bg: #f7f8fb;
-        --panel: rgba(20, 24, 38, 0.05);
-        --panel-2: rgba(20, 24, 38, 0.07);
-        --text: rgba(20, 24, 38, 0.92);
-        --muted: rgba(20, 24, 38, 0.70);
-        --faint: rgba(20, 24, 38, 0.55);
-        --border: rgba(20, 24, 38, 0.12);
-        --shadow: 0 16px 42px rgba(20,24,38,0.12);
+        --bg:#f7f8fb;
+        --panel:rgba(20,24,38,0.05);
+        --panel2:rgba(20,24,38,0.07);
+        --text:rgba(20,24,38,0.92);
+        --muted:rgba(20,24,38,0.70);
+        --faint:rgba(20,24,38,0.55);
+        --border:rgba(20,24,38,0.12);
+        --shadow:0 18px 45px rgba(20,24,38,0.12);
       }
     }
 
-    /* Manual toggle class (JS) */
     .theme-light{
-      --bg: #f7f8fb;
-      --panel: rgba(20, 24, 38, 0.05);
-      --panel-2: rgba(20, 24, 38, 0.07);
-      --text: rgba(20, 24, 38, 0.92);
-      --muted: rgba(20, 24, 38, 0.70);
-      --faint: rgba(20, 24, 38, 0.55);
-      --border: rgba(20, 24, 38, 0.12);
-      --shadow: 0 16px 42px rgba(20,24,38,0.12);
+      --bg:#f7f8fb;
+      --panel:rgba(20,24,38,0.05);
+      --panel2:rgba(20,24,38,0.07);
+      --text:rgba(20,24,38,0.92);
+      --muted:rgba(20,24,38,0.70);
+      --faint:rgba(20,24,38,0.55);
+      --border:rgba(20,24,38,0.12);
+      --shadow:0 18px 45px rgba(20,24,38,0.12);
     }
 
-    *{ box-sizing: border-box; }
-    html{ scroll-behavior: smooth; }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
     body{
-      margin: 0;
-      font-family: var(--font);
-      background: radial-gradient(1200px 700px at 15% 10%, rgba(125,211,252,0.22), transparent 60%),
-                  radial-gradient(900px 600px at 90% 20%, rgba(167,139,250,0.20), transparent 55%),
-                  radial-gradient(1000px 700px at 40% 95%, rgba(52,211,153,0.10), transparent 65%),
-                  var(--bg);
-      color: var(--text);
-      line-height: 1.55;
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      line-height:1.55;
+      background:
+        radial-gradient(1100px 700px at 12% 10%, rgba(125,211,252,0.26), transparent 60%),
+        radial-gradient(900px 650px at 92% 20%, rgba(167,139,250,0.22), transparent 58%),
+        radial-gradient(1000px 700px at 45% 92%, rgba(52,211,153,0.12), transparent 65%),
+        var(--bg);
     }
-    a{ color: inherit; text-decoration: none; }
-    a:hover{ text-decoration: underline; text-underline-offset: 3px; }
-    p{ margin: 0.5rem 0 0; color: var(--muted); }
-    h1,h2,h3{ margin: 0; line-height: 1.15; }
-    h2{ font-size: 1.35rem; letter-spacing: 0.2px; }
-    h3{ font-size: 1.05rem; }
+    a{color:inherit; text-decoration:none;}
+    a:hover{text-decoration:underline; text-underline-offset:3px;}
+    h1,h2,h3{margin:0; line-height:1.12;}
+    h2{font-size:1.35rem;}
+    h3{font-size:1.05rem;}
+    p{margin:0.55rem 0 0; color:var(--muted);}
 
-    .skip{
-      position: absolute;
-      left: -9999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-    .skip:focus{
-      left: 16px;
-      top: 16px;
-      width: auto;
-      height: auto;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      padding: 10px 12px;
-      border-radius: 12px;
-      z-index: 9999;
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:18px 18px 64px;}
+
+    /* Decorative background grid */
+    .bg-grid{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:0.22;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: radial-gradient(600px 420px at 50% 22%, rgba(0,0,0,1), transparent 70%);
     }
 
-    .wrap{
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 18px 18px 60px;
-    }
-
-    /* -----------------------------
-       Top bar / nav
-       ----------------------------- */
+    /* Topbar */
     .topbar{
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      position:sticky; top:0; z-index:1000;
       backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.0));
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.38), rgba(0,0,0,0.00));
+      border-bottom:1px solid rgba(255,255,255,0.06);
     }
     .nav{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 12px 18px;
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
     }
     .brand{
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 210px;
+      display:flex; align-items:center; gap:10px;
+      min-width:220px;
     }
     .dot{
-      width: 12px; height: 12px;
-      border-radius: 999px;
+      width:12px; height:12px; border-radius:999px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(125,211,252,0.15);
-      flex: 0 0 auto;
+      box-shadow: 0 0 0 5px rgba(125,211,252,0.16);
+      flex:0 0 auto;
     }
-    .brand strong{ font-weight: 700; }
-    .brand span{ color: var(--faint); font-size: 0.92rem; margin-left: 6px; }
+    .brand strong{font-weight:760;}
+    .brand span{color:var(--faint); font-size:0.92rem; margin-left:6px;}
 
     .navlinks{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
+      display:flex; flex-wrap:wrap;
+      gap:10px; justify-content:center;
     }
     .pill{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
       background: rgba(255,255,255,0.04);
-      color: var(--muted);
-      font-size: 0.93rem;
-      text-decoration: none;
+      color:var(--muted);
+      font-size:0.93rem;
       transition: transform .12s ease, background .12s ease;
     }
-    .pill:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.08);
-      text-decoration: none;
-    }
+    .pill:hover{transform:translateY(-1px); background:rgba(255,255,255,0.09); text-decoration:none;}
+
     .actions{
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      justify-content: flex-end;
-      min-width: 210px;
+      display:flex; gap:10px; align-items:center; justify-content:flex-end;
+      min-width:220px;
     }
     .btn{
-      cursor: pointer;
-      border: 1px solid var(--border);
+      cursor:pointer;
+      border:1px solid var(--border);
       background: rgba(255,255,255,0.06);
-      color: var(--text);
-      padding: 9px 12px;
-      border-radius: 999px;
-      font-size: 0.93rem;
+      color:var(--text);
+      padding:9px 12px;
+      border-radius:999px;
+      font-size:0.93rem;
       transition: transform .12s ease, background .12s ease;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.10); }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,0.11);}
 
-    /* -----------------------------
-       Hero
-       ----------------------------- */
+    @media (max-width: 860px){
+      .navlinks{display:none;}
+      .brand,.actions{min-width:auto;}
+    }
+
+    /* Hero */
     .hero{
-      margin-top: 14px;
-      border: 1px solid var(--border);
-      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
+      margin-top:14px;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+      background: linear-gradient(135deg, rgba(255,255,255,0.085), rgba(255,255,255,0.03));
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(500px 260px at 18% 25%, rgba(125,211,252,0.25), transparent 70%),
+        radial-gradient(520px 320px at 86% 40%, rgba(167,139,250,0.22), transparent 70%),
+        radial-gradient(450px 300px at 55% 95%, rgba(52,211,153,0.14), transparent 70%);
+      filter: blur(10px);
+      opacity:0.9;
+      pointer-events:none;
     }
     .hero-inner{
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
-      padding: var(--pad-lg);
-      align-items: start;
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap:18px;
+      padding:var(--padlg);
+      align-items:start;
     }
+    @media (max-width: 920px){
+      .hero-inner{grid-template-columns:1fr;}
+    }
+
     .kicker{
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--mono);
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin-bottom: 12px;
+      display:inline-flex; gap:10px; flex-wrap:wrap;
+      font-family:var(--mono);
+      font-size:0.92rem;
+      color:var(--muted);
+      margin-bottom:14px;
     }
     .k-badge{
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
       background: rgba(255,255,255,0.06);
     }
+
     .hero h1{
-      font-size: clamp(2.1rem, 3.6vw, 3.0rem);
-      letter-spacing: -0.5px;
-      margin-bottom: 10px;
+      font-size: clamp(2.05rem, 3.6vw, 3.05rem);
+      letter-spacing:-0.6px;
+      margin-bottom:10px;
     }
     .subtitle{
-      color: var(--muted);
-      font-size: 1.05rem;
-      margin-top: 6px;
-      max-width: 58ch;
-    }
-    .chips{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-    .chip{
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-      color: var(--muted);
-      font-size: 0.92rem;
+      font-size:1.05rem;
+      max-width:62ch;
     }
 
     .card{
-      border: 1px solid var(--border);
-      background: var(--panel);
-      border-radius: var(--radius);
-      padding: var(--pad);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      border-radius:var(--radius);
+      padding:var(--pad);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.18);
     }
-    .card h3{ margin-bottom: 10px; }
     .meta{
-      display: grid;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 0.95rem;
+      display:grid;
+      gap:10px;
+      color:var(--muted);
+      font-size:0.95rem;
     }
-    .meta b{ color: var(--text); font-weight: 650; }
-    .meta a{ color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
-    .meta small{ color: var(--faint); }
+    .meta b{color:var(--text); font-weight:700;}
+    .meta a{color:var(--text); text-decoration:underline; text-underline-offset:3px;}
+    .meta small{color:var(--faint);}
 
-    /* -----------------------------
-       Sections
-       ----------------------------- */
+    /* Sections */
     section{
-      margin-top: 18px;
-      border: 1px solid var(--border);
+      margin-top:18px;
+      border:1px solid var(--border);
       background: var(--panel);
-      border-radius: var(--radius);
-      padding: var(--pad-lg);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.16);
+      border-radius:var(--radius);
+      padding:var(--padlg);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.16);
     }
     .section-head{
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 12px;
-    }
-    .section-head p{ margin: 0; }
-
-    .grid-2{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .grid-3{
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 14px;
-    }
-    .item{
-      border: 1px solid var(--border);
-      background: var(--panel-2);
-      border-radius: 16px;
-      padding: 14px 14px;
-    }
-    .item .when{
-      font-family: var(--mono);
-      font-size: 0.9rem;
-      color: var(--faint);
-    }
-    .item .where{
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-    ul.clean{
-      margin: 10px 0 0;
-      padding-left: 1.0rem;
-      color: var(--muted);
-    }
-    ul.clean li{ margin: 6px 0; }
-
-    .pubtools{
       display:flex;
-      gap:10px;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:12px;
+    }
+    .section-head p{margin:0; color:var(--faint);}
+
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+    .grid-3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;}
+    @media (max-width: 780px){
+      .grid-2,.grid-3{grid-template-columns:1fr;}
+    }
+
+    .item{
+      border:1px solid var(--border);
+      background: var(--panel2);
+      border-radius:16px;
+      padding:14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .item::after{
+      content:"";
+      position:absolute;
+      inset:auto -30% -50% auto;
+      width:220px; height:220px;
+      background: radial-gradient(circle at 30% 30%, rgba(125,211,252,0.18), transparent 60%);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+    .when{font-family:var(--mono); font-size:0.9rem; color:var(--faint);}
+    ul.clean{margin:10px 0 0; padding-left:1.05rem; color:var(--muted);}
+    ul.clean li{margin:6px 0;}
+
+    /* Research interest pills */
+    .pills{
+      display:flex;
       flex-wrap:wrap;
-      align-items:center;
+      gap:10px;
+      margin-top:6px;
+    }
+    .rpill{
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size:0.95rem;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .rpill:hover{transform: translateY(-1px); background: rgba(255,255,255,0.10);}
+
+    /* Timeline */
+    .timeline{
+      position:relative;
+      padding-left:52px;
+      margin-top:10px;
+    }
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:20px;
+      top:10px;
+      bottom:10px;
+      width:2px;
+      background: linear-gradient(to bottom, rgba(125,211,252,0.65), rgba(167,139,250,0.55), rgba(52,211,153,0.50));
+      opacity:0.85;
+      border-radius:2px;
+    }
+    .t-item{
+      position:relative;
+      margin: 14px 0 18px;
+    }
+    .t-item::before{
+      content:"";
+      position:absolute;
+      left:-40px;
+      top:16px;
+      width:14px; height:14px;
+      border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 7px rgba(125,211,252,0.14);
+    }
+    .t-card{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      border-radius:16px;
+      padding:14px 14px 14px 14px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.14);
+    }
+    .t-title{
+      font-weight:780;
+      font-size:1.05rem;
+      margin-top:2px;
+    }
+    .t-org{
+      margin-top:6px;
+      color: var(--text);
+      font-size: 1.0rem;
+    }
+    .t-sub{
+      margin-top:6px;
+      color: var(--muted);
+      font-size:0.95rem;
+    }
+    .t-sub span{
+      font-family:var(--mono);
+      color:var(--faint);
+    }
+
+    /* Publications search/filter */
+    .pubtools{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
       margin: 8px 0 12px;
     }
     .search{
-      flex: 1 1 260px;
-      display:flex;
-      gap:10px;
-      align-items:center;
+      flex:1 1 260px;
+      display:flex; gap:10px; align-items:center;
       border:1px solid var(--border);
       background: rgba(255,255,255,0.05);
-      border-radius: 999px;
-      padding: 8px 12px;
+      border-radius:999px;
+      padding:8px 12px;
     }
     .search input{
-      width: 100%;
-      border: none;
-      outline: none;
-      background: transparent;
-      color: var(--text);
-      font-size: 0.95rem;
+      width:100%;
+      border:none; outline:none;
+      background:transparent;
+      color:var(--text);
+      font-size:0.95rem;
     }
     .tag{
-      border: 1px solid var(--border);
+      border:1px solid var(--border);
       background: rgba(255,255,255,0.05);
-      border-radius: 999px;
-      padding: 7px 10px;
-      font-size: 0.9rem;
-      color: var(--muted);
-      cursor: pointer;
-      user-select: none;
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:0.9rem;
+      color:var(--muted);
+      cursor:pointer;
+      user-select:none;
     }
     .tag[aria-pressed="true"]{
       background: rgba(125,211,252,0.16);
       border-color: rgba(125,211,252,0.35);
       color: var(--text);
     }
-
     .pub{
-      border: 1px solid var(--border);
+      border:1px solid var(--border);
       background: rgba(255,255,255,0.04);
-      border-radius: 16px;
-      padding: 12px 14px;
-      margin: 10px 0;
+      border-radius:16px;
+      padding:12px 14px;
+      margin:10px 0;
     }
-    .pub .title{
-      color: var(--text);
-      font-weight: 650;
-    }
-    .pub .meta{
-      margin-top: 6px;
-      font-size: 0.92rem;
-      color: var(--muted);
-      display: block;
+    .pub .title{color:var(--text); font-weight:760;}
+    .pub .pmeta{
+      margin-top:6px;
+      font-size:0.92rem;
+      color:var(--muted);
+      display:block;
     }
     .pub .doi{
-      font-family: var(--mono);
-      font-size: 0.9rem;
-      color: var(--faint);
-      margin-top: 6px;
-      display: inline-block;
+      font-family:var(--mono);
+      font-size:0.9rem;
+      color:var(--faint);
+      margin-top:6px;
+      display:inline-block;
     }
 
     .footer{
-      margin-top: 22px;
-      text-align: center;
-      color: var(--faint);
-      font-size: 0.93rem;
-    }
-
-    /* -----------------------------
-       Responsive
-       ----------------------------- */
-    @media (max-width: 920px){
-      .hero-inner{ grid-template-columns: 1fr; }
-      .actions{ min-width: auto; }
-      .brand{ min-width: auto; }
-    }
-    @media (max-width: 780px){
-      .grid-2, .grid-3{ grid-template-columns: 1fr; }
-      .nav{ gap: 10px; }
-      .navlinks{ display:none; } /* keep topbar compact on mobile */
-    }
-
-    /* Print styling (optional) */
-    @media print{
-      .topbar, .actions, .pubtools { display:none !important; }
-      body{ background: #fff; }
-      section, .hero{ box-shadow: none; }
-      a{ text-decoration: none; }
+      margin-top:22px;
+      text-align:center;
+      color:var(--faint);
+      font-size:0.93rem;
     }
   </style>
 </head>
 
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <div class="bg-grid" aria-hidden="true"></div>
 
   <div class="topbar">
     <div class="nav" role="navigation" aria-label="Primary">
@@ -430,14 +434,16 @@
 
       <div class="navlinks" aria-label="Section links">
         <a class="pill" href="#about">About</a>
-        <a class="pill" href="#experience">Experience</a>
+        <a class="pill" href="#interests">Research Interests</a>
+        <a class="pill" href="#timeline">Timeline</a>
+        <a class="pill" href="#projects">Projects</a>
         <a class="pill" href="#publications">Publications</a>
         <a class="pill" href="#skills">Skills</a>
         <a class="pill" href="#contact">Contact</a>
       </div>
 
       <div class="actions">
-        <!-- Put your CV PDF in the repository root as "CV_Ankit.pdf" so this link works -->
+        <!-- Put your CV PDF in repo root as "CV_Ankit.pdf" -->
         <a class="btn" href="CV_Ankit.pdf" target="_blank" rel="noopener">Download CV</a>
         <button class="btn" id="themeBtn" type="button" aria-label="Toggle theme">Theme</button>
       </div>
@@ -456,29 +462,17 @@
 
           <h1>Complex systems, spectral statistics, and network dynamics.</h1>
           <p class="subtitle">
-            I am a postdoctoral researcher at <b>Nanyang Technological University (NTU), Singapore</b>.
-            I earned my Ph.D. in Physics from <b>IIT Indore</b>, with a focus on localization phenomena in complex networks.
+            I currently hold a postdoctoral research position at <b>Nanyang Technological University (NTU), Singapore</b>.
+            I earned my Ph.D. in Physics from <b>IIT Indore</b>, and my work centers on localization phenomena and dynamics on networks.
           </p>
-
-          <div class="chips" aria-label="Research keywords">
-            <span class="chip">Eigenvector localization</span>
-            <span class="chip">Random matrices & spectral statistics</span>
-            <span class="chip">Small-world / disordered networks</span>
-            <span class="chip">Routing strategies & traffic flow</span>
-            <span class="chip">Game theory in communication</span>
-            <span class="chip">Higher-order networks / hypergraphs</span>
-          </div>
         </div>
 
-        <!-- CONTACT CARD (quick glance) -->
         <aside class="card" aria-label="Quick contact">
           <h3>Quick Info</h3>
           <div class="meta">
             <div><b>Email:</b> <a href="mailto:ankitphy0592@gmail.com">ankitphy0592@gmail.com</a></div>
-            <div><b>Phone:</b> <a href="tel:+6587478357">+65 8747 8357</a></div>
             <div><b>Location:</b> Singapore</div>
             <div><b>ORCID:</b> <a href="https://orcid.org/0000-0002-7641-4379" target="_blank" rel="noopener">0000-0002-7641-4379</a></div>
-            <!-- LinkedIn URL was not provided in the CV; add your exact profile link below if you want -->
             <div><b>LinkedIn:</b> <span>Ankit Mishra</span> <small>(add URL in code)</small></div>
           </div>
 
@@ -490,123 +484,179 @@
       </div>
     </header>
 
-    <!-- ABOUT -->
+    <!-- ABOUT (made concrete, not vague) -->
     <section id="about" aria-label="About">
       <div class="section-head">
         <h2>About</h2>
-        <p>Research profile and current focus</p>
+        <p>What I work on — stated concretely</p>
       </div>
 
       <div class="grid-2">
         <div class="item">
-          <h3>Current position</h3>
-          <p class="where">
-            I currently hold a postdoctoral Research Fellow position at NTU (Singapore), working on interdisciplinary projects that connect
-            network science, spectral theory, and dynamics on complex systems.
+          <h3>Core research focus</h3>
+          <ul class="clean">
+            <li><b>Spectral & localization theory on networks:</b> eigenvalue statistics, eigenvector localization, finite-size scaling.</li>
+            <li><b>Dynamics on complex systems:</b> traffic/flow processes, congestion transitions, performance metrics under limited resources.</li>
+            <li><b>Strategy + randomness:</b> Parrondo-inspired routing mechanisms in multiplex communication systems.</li>
+            <li><b>Higher-order structure:</b> hypergraphs and the contrast between pairwise vs higher-order interactions.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <h3>How I work</h3>
+          <ul class="clean">
+            <li>Mathematical modeling → simulation → statistical validation.</li>
+            <li>Build reproducible Python/MATLAB pipelines for experiments and figures.</li>
+            <li>Translate theory into measurable quantities (e.g., localization indicators, spectral diagnostics, routing efficiency).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH INTERESTS (new section, as requested) -->
+    <section id="interests" aria-label="Research Interests">
+      <div class="section-head">
+        <h2>Research Interests</h2>
+        <p>Keywords that describe my work</p>
+      </div>
+
+      <div class="pills" aria-label="Interest list">
+        <span class="rpill">Anderson localization</span>
+        <span class="rpill">Network dynamics</span>
+        <span class="rpill">Parrondo’s paradox</span>
+        <span class="rpill">Complex systems</span>
+        <span class="rpill">Spectral statistics</span>
+        <span class="rpill">Multiplex routing</span>
+        <span class="rpill">Hypergraphs / higher-order networks</span>
+      </div>
+    </section>
+
+    <!-- TIMELINE (Experience + Education) -->
+    <section id="timeline" aria-label="Timeline">
+      <div class="section-head">
+        <h2>Timeline</h2>
+        <p>Experience and education (tree-style)</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- EXPERIENCE TIMELINE -->
+        <div class="item">
+          <h3>Experience</h3>
+          <div class="timeline" aria-label="Experience timeline">
+            <div class="t-item">
+              <div class="t-card">
+                <div class="t-title">Research Fellow</div>
+                <div class="t-org">Nanyang Technological University (NTU), Singapore</div>
+                <div class="t-sub"><span>Mar 2024 – Today</span></div>
+                <ul class="clean">
+                  <li>Modeling incentive-driven auction dynamics on complex networks.</li>
+                  <li>Parrondo-inspired routing strategies for multiplex communication systems.</li>
+                  <li>Eigenvector localization via finite-size scaling in disordered networks and quasi-periodic lattices.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="t-item">
+              <div class="t-card">
+                <div class="t-title">Research Fellow</div>
+                <div class="t-org">Singapore University of Technology and Design (SUTD)</div>
+                <div class="t-sub"><span>Feb 2023 – Feb 2024</span></div>
+                <ul class="clean">
+                  <li>Led numerical experiments, model development, analysis, and manuscript drafting.</li>
+                  <li>Supported PI and guided Research Assistants.</li>
+                  <li>Projects on game theory in network communication, AI, and educational research.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="t-item">
+              <div class="t-card">
+                <div class="t-title">Research Assistant</div>
+                <div class="t-org">Singapore University of Technology and Design (SUTD)</div>
+                <div class="t-sub"><span>Aug 2022 – Feb 2023</span></div>
+                <ul class="clean">
+                  <li>Research on game theory and applications in network dynamics.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EDUCATION TIMELINE -->
+        <div class="item">
+          <h3>Education</h3>
+          <div class="timeline" aria-label="Education timeline">
+            <div class="t-item">
+              <div class="t-card">
+                <div class="t-title">Ph.D. in Physics</div>
+                <div class="t-org">IIT Indore, India</div>
+                <div class="t-sub"><span>2017 – 2022</span> • Thesis: Localization in Complex Networks</div>
+              </div>
+            </div>
+
+            <div class="t-item">
+              <div class="t-card">
+                <div class="t-title">M.Sc. in Physics</div>
+                <div class="t-org">IIT Indore, India</div>
+                <div class="t-sub"><span>2015 – 2017</span> • Thesis: Statistical analysis of complex networks</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px; border-top:1px solid var(--border); padding-top:14px; color:var(--muted);">
+            <b style="color:var(--text);">Note:</b> If you want, I can add a third timeline block for “Key Papers” (year → paper card), matching the same style.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (new) -->
+    <section id="projects" aria-label="Projects">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p>Selected research directions (readable summaries)</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="item">
+          <h3>Parrondo-inspired routing in multiplex systems</h3>
+          <p>
+            Designing switching/alternating routing rules where two individually suboptimal choices can yield improved global performance
+            when combined (Parrondo mechanism), and testing this under congestion and limited resources.
+          </p>
+          <p style="margin-top:10px;">
+            <a href="https://doi.org/10.1103/PhysRevResearch.6.L012037" target="_blank" rel="noopener">Related paper (PRR Letter)</a>
           </p>
         </div>
 
         <div class="item">
-          <h3>Research themes</h3>
-          <ul class="clean">
-            <li>Localization, multifractality, and finite-size scaling in network eigenvectors</li>
-            <li>Spectral statistics and randomness vs disorder in complex networks</li>
-            <li>Routing strategies for multiplex / layered communication systems</li>
-            <li>Higher-order interactions (hypergraphs) and their spectral signatures</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="item" style="margin-top:14px;">
-        <h3>One “math snapshot” (optional on-page demo)</h3>
-        <p class="where">
-          In many of my works, the adjacency (or coupling) structure of a network is encoded by a matrix \(A\),
-          and spectral properties are studied via the eigenproblem
-          \[
-            A\mathbf{v}=\lambda \mathbf{v}.
-          \]
-          Localization can be quantified (for example) by the inverse participation ratio
-          \[
-            \mathrm{IPR}(\mathbf{v})=\sum_{i=1}^{N} |v_i|^4,
-          \]
-          where larger values indicate stronger concentration of eigenvector mass on fewer nodes.
-        </p>
-        <p class="where" style="margin-top:8px; color:var(--faint);">
-          (MathJax is included so equations render nicely.)
-        </p>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" aria-label="Experience">
-      <div class="section-head">
-        <h2>Experience</h2>
-        <p>Research appointments</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="item">
-          <div class="when">March 2024 – Present</div>
-          <h3>Research Fellow</h3>
-          <div class="where"><b>Nanyang Technological University (NTU), Singapore</b></div>
-          <ul class="clean">
-            <li>Incentive-driven auction dynamics on complex networks</li>
-            <li>Parrondo-inspired routing strategies for multiplex communication systems</li>
-            <li>Finite-size scaling of eigenvector localization in disordered networks and quasi-periodic lattices</li>
-          </ul>
+          <h3>Traffic management with limited resources</h3>
+          <p>
+            Studying congestion transitions and efficiency under constrained capacity, and developing strategies that re-balance load dynamically
+            (e.g., switching rules) to reduce bottlenecks.
+          </p>
+          <p style="margin-top:10px;">
+            <a href="https://doi.org/10.1016/j.chaos.2024.114658" target="_blank" rel="noopener">Related paper (Chaos, Solitons & Fractals)</a>
+          </p>
         </div>
 
         <div class="item">
-          <div class="when">Feb 2023 – Feb 2024</div>
-          <h3>Research Fellow</h3>
-          <div class="where"><b>Singapore University of Technology and Design (SUTD)</b></div>
-          <ul class="clean">
-            <li>Led numerical experiments, model development, analysis, and paper drafting</li>
-            <li>Supported PI and guided Research Assistants</li>
-            <li>Projects on game theory in network communication, AI, and educational research</li>
-          </ul>
+          <h3>Eigenvector localization & finite-size scaling</h3>
+          <p>
+            Quantifying how localization changes with system size and disorder strength, and identifying regimes where eigenvectors concentrate
+            on small node sets versus delocalized behavior.
+          </p>
         </div>
 
         <div class="item">
-          <div class="when">Aug 2022 – Feb 2023</div>
-          <h3>Research Assistant</h3>
-          <div class="where"><b>Singapore University of Technology and Design (SUTD)</b></div>
-          <ul class="clean">
-            <li>Research on game theory and applications in network dynamics</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <div class="when">2017 – 2022</div>
-          <h3>Ph.D. Research</h3>
-          <div class="where"><b>IIT Indore, India</b> — Thesis: <i>Localization in Complex Networks</i></div>
-          <ul class="clean">
-            <li>Spectral analysis, localization, and statistical characterization of complex network models</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" aria-label="Education">
-      <div class="section-head">
-        <h2>Education</h2>
-        <p>Degrees and thesis topics</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="item">
-          <div class="when">2017 – 2022</div>
-          <h3>Ph.D. in Physics</h3>
-          <div class="where"><b>Indian Institute of Technology (IIT) Indore, India</b></div>
-          <p class="where"><b>Thesis:</b> Localization in Complex Networks</p>
-        </div>
-
-        <div class="item">
-          <div class="when">2015 – 2017</div>
-          <h3>Master’s in Physics</h3>
-          <div class="where"><b>Indian Institute of Technology (IIT) Indore, India</b></div>
-          <p class="where"><b>Thesis:</b> Statistical analysis of complex networks</p>
+          <h3>Hypergraphs: pairwise vs higher-order links</h3>
+          <p>
+            Comparing spectral localization under conventional edges versus higher-order interactions, and measuring how higher-order structure
+            changes localization tendencies.
+          </p>
+          <p style="margin-top:10px;">
+            <a href="https://doi.org/10.1103/PhysRevE.107.034311" target="_blank" rel="noopener">Related paper (PRE)</a>
+          </p>
         </div>
       </div>
     </section>
@@ -615,7 +665,7 @@
     <section id="publications" aria-label="Publications">
       <div class="section-head">
         <h2>Publications</h2>
-        <p>Filterable list (type keywords like “routing”, “localization”, “hypergraph”)</p>
+        <p>Search + filter</p>
       </div>
 
       <div class="pubtools" role="group" aria-label="Publication controls">
@@ -632,139 +682,92 @@
         <!-- First & corresponding author -->
         <div class="pub" data-kind="first">
           <div class="title">Multi-fractal analyses eigenvectors of small-world networks</div>
-          <span class="meta">Chaos, Solitons and Fractals • 2021</span>
+          <span class="pmeta">Chaos, Solitons and Fractals • 2021</span>
           <a class="doi" href="https://doi.org/10.1016/j.chaos.2021.110745" target="_blank" rel="noopener">doi:10.1016/j.chaos.2021.110745</a>
         </div>
 
         <div class="pub" data-kind="first">
           <div class="title">Eigenvalue ratio statistics of complex networks: Disorder versus randomness</div>
-          <span class="meta">Physical Review E • 2022</span>
+          <span class="pmeta">Physical Review E • 2022</span>
           <a class="doi" href="https://doi.org/10.1103/PhysRevE.105.064307" target="_blank" rel="noopener">doi:10.1103/PhysRevE.105.064307</a>
         </div>
 
         <div class="pub" data-kind="first">
           <div class="title">On the second largest eigenvalue of networks</div>
-          <span class="meta">Applied Network Science • 2022</span>
+          <span class="pmeta">Applied Network Science • 2022</span>
           <a class="doi" href="https://doi.org/10.1007/s41109-022-00484-w" target="_blank" rel="noopener">doi:10.1007/s41109-022-00484-w</a>
         </div>
 
         <div class="pub" data-kind="first">
           <div class="title">Eigenvector localization in hypergraphs: pair-wise vs higher-order links</div>
-          <span class="meta">Physical Review E • 2023</span>
+          <span class="pmeta">Physical Review E • 2023</span>
           <a class="doi" href="https://doi.org/10.1103/PhysRevE.107.034311" target="_blank" rel="noopener">doi:10.1103/PhysRevE.107.034311</a>
         </div>
 
         <div class="pub" data-kind="first">
           <div class="title">Exploring universality of β–Gaussian ensemble in complex networks via intermediate eigenvalue statistics</div>
-          <span class="meta">Physical Review E • 2024</span>
+          <span class="pmeta">Physical Review E • 2024</span>
           <a class="doi" href="https://doi.org/10.1103/PhysRevE.109.014218" target="_blank" rel="noopener">doi:10.1103/PhysRevE.109.014218</a>
         </div>
 
         <div class="pub" data-kind="first">
           <div class="title">Parrondo’s Paradox in Network Communication: A Routing Strategy</div>
-          <span class="meta">Physical Review Research (Letter) • 2024</span>
+          <span class="pmeta">Physical Review Research (Letter) • 2024</span>
           <a class="doi" href="https://doi.org/10.1103/PhysRevResearch.6.L012037" target="_blank" rel="noopener">doi:10.1103/PhysRevResearch.6.L012037</a>
         </div>
 
         <div class="pub" data-kind="first">
           <div class="title">Efficient Traffic Management in Networks with Limited Resources: The Switching Routing Strategy</div>
-          <span class="meta">Chaos, Solitons and Fractals • 2024</span>
+          <span class="pmeta">Chaos, Solitons and Fractals • 2024</span>
           <a class="doi" href="https://doi.org/10.1016/j.chaos.2024.114658" target="_blank" rel="noopener">doi:10.1016/j.chaos.2024.114658</a>
         </div>
 
         <div class="pub" data-kind="first">
           <div class="title">Strategic variability in routing: Enhancing network performance in two-layer traffic systems</div>
-          <span class="meta">Physical Review E (Letter) • 2025</span>
-          <!-- DOI not listed in CV excerpt; add it here if you want -->
-          <span class="doi">DOI: (add if available)</span>
+          <span class="pmeta">Physical Review E (Letter) • 2025</span>
+          <span class="doi">DOI: (add if you want)</span>
         </div>
 
-        <!-- Additional publications -->
+        <!-- Additional -->
         <div class="pub" data-kind="additional">
           <div class="title">Role of mitochondrial genetic interactions in determining adaptation to high altitude human population</div>
-          <span class="meta">Scientific Reports • 2022</span>
+          <span class="pmeta">Scientific Reports • 2022</span>
           <a class="doi" href="https://doi.org/10.1038/s41598-022-05719-5" target="_blank" rel="noopener">doi:10.1038/s41598-022-05719-5</a>
         </div>
 
         <div class="pub" data-kind="additional">
           <div class="title">Higher-order co-mutation interactions in mitochondrial genomes</div>
-          <span class="meta">New Journal of Physics • 2023</span>
+          <span class="pmeta">New Journal of Physics • 2023</span>
           <a class="doi" href="https://doi.org/10.1088/1367-2630/acf51a" target="_blank" rel="noopener">doi:10.1088/1367-2630/acf51a</a>
         </div>
 
         <div class="pub" data-kind="additional">
           <div class="title">Using opinion dynamics to identify groups for targeted intervention in lifelong learning: A case study of SkillsFuture in Singapore</div>
-          <span class="meta">International Journal of Modern Physics B • 2023</span>
+          <span class="pmeta">International Journal of Modern Physics B • 2023</span>
           <a class="doi" href="https://doi.org/10.1142/S0217979224502576" target="_blank" rel="noopener">doi:10.1142/S0217979224502576</a>
         </div>
 
         <div class="pub" data-kind="additional">
           <div class="title">Unraveling the Dynamics of Lifelong Learning in Singapore: A Comparative Study</div>
-          <span class="meta">Knowledge • 2023</span>
+          <span class="pmeta">Knowledge • 2023</span>
           <a class="doi" href="https://doi.org/10.3390/knowledge3030030" target="_blank" rel="noopener">doi:10.3390/knowledge3030030</a>
         </div>
 
         <div class="pub" data-kind="additional">
           <div class="title">Utilizing Google Cardboard Virtual Reality for Visualization in Multivariable Calculus</div>
-          <span class="meta">IEEE Access • 2023</span>
+          <span class="pmeta">IEEE Access • 2023</span>
           <a class="doi" href="https://doi.org/10.1109/ACCESS.2023.3281753" target="_blank" rel="noopener">doi:10.1109/ACCESS.2023.3281753</a>
         </div>
 
         <div class="pub" data-kind="additional">
           <div class="title">Enhancing Biology Laboratory Learning: Student Perceptions of Performing Heart Dissection with Virtual Reality</div>
-          <span class="meta">IEEE Access • 2024</span>
-          <span class="doi">DOI: (add if available)</span>
+          <span class="pmeta">IEEE Access • 2024</span>
+          <span class="doi">DOI: (add if you want)</span>
         </div>
       </div>
     </section>
 
-    <!-- CONFERENCES -->
-    <section id="conferences" aria-label="Conferences">
-      <div class="section-head">
-        <h2>Conferences</h2>
-        <p>Selected talks and presentations</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="item">
-          <h3>CDSA 2020</h3>
-          <p class="where">Oral + poster: “Multi-fractal analyses of eigenvectors of small-world networks.”</p>
-        </div>
-        <div class="item">
-          <h3>CCS 2020</h3>
-          <p class="where">Oral: “Multifractal analyses of eigenvectors of small-world networks.”</p>
-        </div>
-        <div class="item">
-          <h3>CompleNET Live 2021</h3>
-          <p class="where">Oral: “Multi-fractal analyses of eigenvectors of small-world networks.”</p>
-        </div>
-        <div class="item">
-          <h3>CCS 2022</h3>
-          <p class="where">Oral: “Eigenvalue ratio statistics of complex networks: Disorder vs Randomness.”</p>
-        </div>
-        <div class="item">
-          <h3>NERCCS 2022</h3>
-          <p class="where">Poster: “Eigenvalue ratio statistics of complex networks: Disorder vs Randomness.”</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PEER REVIEW -->
-    <section id="review" aria-label="Peer review">
-      <div class="section-head">
-        <h2>Academic Peer Review</h2>
-        <p>Journals reviewed for</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="item"><h3>Scientific Reports</h3></div>
-        <div class="item"><h3>Journal of Computational Science</h3></div>
-        <div class="item"><h3>Journal of Physics: Complexity</h3></div>
-        <div class="item"><h3>Journal of Complex Networks</h3></div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
+    <!-- SKILLS (removed "research strengths") -->
     <section id="skills" aria-label="Skills">
       <div class="section-head">
         <h2>Skills</h2>
@@ -814,107 +817,71 @@
         </div>
 
         <div class="item">
-          <h3>Research strengths</h3>
+          <h3>Workflow</h3>
           <ul class="clean">
-            <li>Numerical experiments & simulation</li>
-            <li>Mathematical modeling</li>
-            <li>Data-driven analysis</li>
-            <li>Paper writing & collaboration</li>
+            <li>Reproducible simulations</li>
+            <li>Model → experiment → paper pipeline</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- AWARDS -->
-    <section id="awards" aria-label="Awards">
-      <div class="section-head">
-        <h2>Awards & Achievements</h2>
-        <p>Competitive exams and ranks</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="item">
-          <div class="when">2015</div>
-          <h3>IIT JAM</h3>
-          <p class="where">All India Rank: 267</p>
-        </div>
-        <div class="item">
-          <div class="when">2015</div>
-          <h3>JEST</h3>
-          <p class="where">All India Rank: 122</p>
-        </div>
-        <div class="item">
-          <div class="when">2017</div>
-          <h3>GATE</h3>
-          <p class="where">All India Rank: 357</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
+    <!-- CONTACT (phone removed, as requested) -->
     <section id="contact" aria-label="Contact">
       <div class="section-head">
         <h2>Contact</h2>
-        <p>Feel free to reach out for collaboration or discussion</p>
+        <p>Best channel: email</p>
       </div>
 
       <div class="grid-2">
         <div class="item">
           <h3>Email</h3>
-          <p class="where"><a href="mailto:ankitphy0592@gmail.com">ankitphy0592@gmail.com</a></p>
-          <p class="where" style="color:var(--faint);">Best for research inquiries and collaborations.</p>
-        </div>
-
-        <div class="item">
-          <h3>Phone</h3>
-          <p class="where"><a href="tel:+6587478357">+65 8747 8357</a></p>
-          <p class="where" style="color:var(--faint);">Singapore number.</p>
+          <p><a href="mailto:ankitphy0592@gmail.com">ankitphy0592@gmail.com</a></p>
+          <p style="color:var(--faint);">Collaboration, talks, papers, and research discussions.</p>
         </div>
 
         <div class="item">
           <h3>ORCID</h3>
-          <p class="where"><a href="https://orcid.org/0000-0002-7641-4379" target="_blank" rel="noopener">0000-0002-7641-4379</a></p>
+          <p><a href="https://orcid.org/0000-0002-7641-4379" target="_blank" rel="noopener">0000-0002-7641-4379</a></p>
+          <p style="color:var(--faint);">Publications and author record.</p>
         </div>
 
         <div class="item">
           <h3>LinkedIn</h3>
-          <p class="where">Ankit Mishra</p>
-          <p class="where" style="color:var(--faint);">
-            Add your exact profile URL in the code to make this clickable.
-          </p>
+          <p>Ankit Mishra</p>
+          <p style="color:var(--faint);">Add your exact profile URL in the code to make it clickable.</p>
+        </div>
+
+        <div class="item">
+          <h3>Location</h3>
+          <p>Singapore</p>
         </div>
       </div>
     </section>
 
     <div class="footer">
-      <div>
-        © <span id="year"></span> Dr. Ankit Mishra • Built for GitHub Pages
-      </div>
+      <div>© <span id="year"></span> Dr. Ankit Mishra • GitHub Pages</div>
       <div style="margin-top:6px;">
-        <span style="font-family:var(--mono); color:var(--faint);">last updated:</span>
-        <span style="color:var(--muted);">edit <b>index.html</b> in your repository</span>
+        <span style="font-family:var(--mono); color:var(--faint);">Tip:</span>
+        <span style="color:var(--muted);">upload CV as <b>CV_Ankit.pdf</b> in repo root for the button to work.</span>
       </div>
     </div>
   </div>
 
-  <!-- MathJax (renders LaTeX equations in About section) -->
   <script>
-    // Theme toggle
+    // Theme toggle (stored in localStorage)
     (function(){
       const root = document.documentElement;
       const btn = document.getElementById('themeBtn');
-
-      // Load saved preference if exists
       const saved = localStorage.getItem('theme');
       if (saved === 'light') root.classList.add('theme-light');
-
       btn.addEventListener('click', () => {
         root.classList.toggle('theme-light');
         localStorage.setItem('theme', root.classList.contains('theme-light') ? 'light' : 'dark');
       });
     })();
 
-    // Year in footer
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Publications: search + filter
@@ -929,24 +896,20 @@
         const text = pub.innerText.toLowerCase();
         return text.includes(q);
       }
-
       function filterKind(pub){
         if (activeFilter === 'all') return true;
         return pub.getAttribute('data-kind') === activeFilter;
       }
-
       function render(){
         const q = input.value.trim().toLowerCase();
         pubs.forEach(pub => {
-          const ok = matches(pub, q) && filterKind(pub);
-          pub.style.display = ok ? '' : 'none';
+          pub.style.display = (matches(pub, q) && filterKind(pub)) ? '' : 'none';
         });
       }
 
       tags.forEach(t => {
         t.addEventListener('click', () => {
-          const f = t.getAttribute('data-filter');
-          activeFilter = f === 'all' ? 'all' : f;
+          activeFilter = t.getAttribute('data-filter');
           tags.forEach(x => x.setAttribute('aria-pressed', String(x === t)));
           render();
         });
@@ -956,13 +919,5 @@
       render();
     })();
   </script>
-
-  <script>
-    window.MathJax = {
-      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
-      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
-    };
-  </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </body>
 </html>
