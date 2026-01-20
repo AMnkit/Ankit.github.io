@@ -78,7 +78,6 @@
 
     .wrap{max-width:var(--maxw); margin:0 auto; padding:18px 18px 64px;}
 
-    /* Decorative background grid */
     .bg-grid{
       position:fixed;
       inset:0;
@@ -91,7 +90,6 @@
       mask-image: radial-gradient(600px 420px at 50% 22%, rgba(0,0,0,1), transparent 70%);
     }
 
-    /* Topbar */
     .topbar{
       position:sticky; top:0; z-index:1000;
       backdrop-filter: blur(10px);
@@ -157,7 +155,6 @@
       .brand,.actions{min-width:auto;}
     }
 
-    /* Hero */
     .hero{
       margin-top:14px;
       border:1px solid var(--border);
@@ -232,7 +229,6 @@
     .meta a{color:var(--text); text-decoration:underline; text-underline-offset:3px;}
     .meta small{color:var(--faint);}
 
-    /* Sections */
     section{
       margin-top:18px;
       border:1px solid var(--border);
@@ -274,7 +270,6 @@
     }
     .when{font-family:var(--mono); font-size:0.9rem; color:var(--faint);}
 
-    /* Research interest pills */
     .pills{
       display:flex;
       flex-wrap:wrap;
@@ -292,7 +287,6 @@
     }
     .rpill:hover{transform: translateY(-1px); background: rgba(255,255,255,0.10);}
 
-    /* Timeline */
     .timeline{
       position:relative;
       padding-left:52px;
@@ -350,7 +344,6 @@
       color:var(--faint);
     }
 
-    /* Publications search/filter */
     .pubtools{
       display:flex; gap:10px; flex-wrap:wrap; align-items:center;
       margin: 8px 0 12px;
@@ -432,13 +425,11 @@
       <div class="navlinks" aria-label="Section links">
         <a class="pill" href="#interests">Research Interests</a>
         <a class="pill" href="#timeline">Timeline</a>
-        <a class="pill" href="#projects">Projects</a>
         <a class="pill" href="#publications">Publications</a>
         <a class="pill" href="#contact">Contact</a>
       </div>
 
       <div class="actions">
-        <!-- Put your CV PDF in repo root as "CV_Ankit.pdf" -->
         <a class="btn" href="CV_Ankit.pdf" target="_blank" rel="noopener">Download CV</a>
         <button class="btn" id="themeBtn" type="button" aria-label="Toggle theme">Theme</button>
       </div>
@@ -468,13 +459,13 @@
             <div><b>Email:</b> <a href="mailto:ankitphy0592@gmail.com">ankitphy0592@gmail.com</a></div>
             <div><b>Location:</b> Singapore</div>
             <div><b>ORCID:</b> <a href="https://orcid.org/0000-0002-7641-4379" target="_blank" rel="noopener">0000-0002-7641-4379</a></div>
-            <div><b>LinkedIn:</b> <span>Ankit Mishra</span> <small>(www.linkedin.com/in/ankit-mishra-86bb93121)</small></div>
+            <div><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/ankit-mishra-86bb93121" target="_blank" rel="noopener">Ankit Mishra</a></div>
           </div>
         </aside>
       </div>
     </header>
 
-    <!-- RESEARCH INTERESTS (simple, only the four items you asked for) -->
+    <!-- RESEARCH INTERESTS -->
     <section id="interests" aria-label="Research Interests">
       <div class="section-head">
         <h2>Research Interests</h2>
@@ -489,7 +480,7 @@
       </div>
     </section>
 
-    <!-- TIMELINE (Experience + Education, simple like a tree) -->
+    <!-- TIMELINE -->
     <section id="timeline" aria-label="Timeline">
       <div class="section-head">
         <h2>Timeline</h2>
@@ -497,7 +488,7 @@
       </div>
 
       <div class="grid-2">
-        <!-- EXPERIENCE TIMELINE -->
+        <!-- EXPERIENCE -->
         <div class="item">
           <h3>Experience</h3>
           <div class="timeline" aria-label="Experience timeline">
@@ -527,7 +518,7 @@
           </div>
         </div>
 
-        <!-- EDUCATION TIMELINE -->
+        <!-- EDUCATION -->
         <div class="item">
           <h3>Education</h3>
           <div class="timeline" aria-label="Education timeline">
@@ -547,45 +538,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" aria-label="Projects">
-      <div class="section-head">
-        <h2>Projects</h2>
-        <p>Selected research directions</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="item">
-          <h3>Parrondo-inspired routing in networks</h3>
-          <p>
-            Routing strategies in which alternating between individually poor options
-            can improve overall network performance, inspired by Parrondo’s paradox.
-          </p>
-        </div>
-
-        <div class="item">
-          <h3>Traffic management under limited resources</h3>
-          <p>
-            Study of congestion and efficiency in networks when capacity and resources are constrained.
-          </p>
-        </div>
-
-        <div class="item">
-          <h3>Eigenvector localization and scaling</h3>
-          <p>
-            Analysis of how localization of eigenvectors behaves when network size and disorder are varied.
-          </p>
-        </div>
-
-        <div class="item">
-          <h3>Complex systems and network dynamics</h3>
-          <p>
-            Models of dynamical processes on complex networks, with an emphasis on transitions and stability.
-          </p>
         </div>
       </div>
     </section>
@@ -696,7 +648,7 @@
       </div>
     </section>
 
-    <!-- CONTACT (simple, no extra sentences, no phone) -->
+    <!-- CONTACT -->
     <section id="contact" aria-label="Contact">
       <div class="section-head">
         <h2>Contact</h2>
@@ -716,7 +668,7 @@
 
         <div class="item">
           <h3>LinkedIn</h3>
-          <p>Ankit Mishra</p>
+          <p><a href="https://www.linkedin.com/in/ankit-mishra-86bb93121" target="_blank" rel="noopener">www.linkedin.com/in/ankit-mishra-86bb93121</a></p>
         </div>
 
         <div class="item">
@@ -736,7 +688,6 @@
   </div>
 
   <script>
-    // Theme toggle (stored in localStorage)
     (function(){
       const root = document.documentElement;
       const btn = document.getElementById('themeBtn');
@@ -748,10 +699,8 @@
       });
     })();
 
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Publications: search + filter
     (function(){
       const input = document.getElementById('pubSearch');
       const pubs = Array.from(document.querySelectorAll('.pub'));
