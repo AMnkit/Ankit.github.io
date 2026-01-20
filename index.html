@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
 
-  <title>Dr. Ankit Mishra | Complex Systems & Network Dynamics</title>
-  <meta name="description" content="Dr. Ankit Mishra (Ph.D.) — Research Fellow at NTU Singapore. Complex systems, network dynamics, Anderson localization, Parrondo’s paradox, spectral statistics." />
+  <title>Ankit Mishra</title>
+  <meta name="description" content="Personal webpage of Ankit Mishra, Postdoctoral Research Fellow at Nanyang Technological University, Singapore." />
 
   <style>
     :root{
@@ -20,9 +20,9 @@
       --shadow:0 18px 50px rgba(0,0,0,0.38);
       --radius:18px;
 
-      --accent:#7dd3fc;     /* sky */
-      --accent2:#a78bfa;    /* violet */
-      --accent3:#34d399;    /* green */
+      --accent:#7dd3fc;
+      --accent2:#a78bfa;
+      --accent3:#34d399;
 
       --maxw:1100px;
       --pad:22px;
@@ -109,7 +109,7 @@
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      min-width:220px;
+      min-width:200px;
     }
     .dot{
       width:12px; height:12px; border-radius:999px;
@@ -138,7 +138,7 @@
 
     .actions{
       display:flex; gap:10px; align-items:center; justify-content:flex-end;
-      min-width:220px;
+      min-width:200px;
     }
     .btn{
       cursor:pointer;
@@ -206,7 +206,7 @@
     }
 
     .hero h1{
-      font-size: clamp(2.05rem, 3.6vw, 3.05rem);
+      font-size: clamp(2.4rem, 3.7vw, 3.25rem);
       letter-spacing:-0.6px;
       margin-bottom:10px;
     }
@@ -251,9 +251,8 @@
     .section-head p{margin:0; color:var(--faint);}
 
     .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-    .grid-3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;}
     @media (max-width: 780px){
-      .grid-2,.grid-3{grid-template-columns:1fr;}
+      .grid-2{grid-template-columns:1fr;}
     }
 
     .item{
@@ -274,8 +273,6 @@
       pointer-events:none;
     }
     .when{font-family:var(--mono); font-size:0.9rem; color:var(--faint);}
-    ul.clean{margin:10px 0 0; padding-left:1.05rem; color:var(--muted);}
-    ul.clean li{margin:6px 0;}
 
     /* Research interest pills */
     .pills{
@@ -427,18 +424,16 @@
       <div class="brand">
         <div class="dot" aria-hidden="true"></div>
         <div>
-          <strong>Dr. Ankit Mishra</strong>
-          <span>Ph.D.</span>
+          <strong>Ankit Mishra</strong>
+          <span>Postdoctoral Research Fellow</span>
         </div>
       </div>
 
       <div class="navlinks" aria-label="Section links">
-        <a class="pill" href="#about">About</a>
         <a class="pill" href="#interests">Research Interests</a>
         <a class="pill" href="#timeline">Timeline</a>
         <a class="pill" href="#projects">Projects</a>
         <a class="pill" href="#publications">Publications</a>
-        <a class="pill" href="#skills">Skills</a>
         <a class="pill" href="#contact">Contact</a>
       </div>
 
@@ -457,13 +452,13 @@
         <div>
           <div class="kicker">
             <span class="k-badge">Research Fellow • NTU Singapore</span>
-            <span class="k-badge">Complex Systems • Network Science</span>
           </div>
 
-          <h1>Complex systems, spectral statistics, and network dynamics.</h1>
+          <h1>Ankit Mishra</h1>
           <p class="subtitle">
-            I currently hold a postdoctoral research position at <b>Nanyang Technological University (NTU), Singapore</b>.
-            I earned my Ph.D. in Physics from <b>IIT Indore</b>, and my work centers on localization phenomena and dynamics on networks.
+            I currently hold a postdoctoral research position at Nanyang Technological University, Singapore.
+            I earned my Ph.D. in Physics from the Indian Institute of Technology Indore, India.
+            My research focuses on several areas, including complex systems, network dynamics, eigenvector localization.
           </p>
         </div>
 
@@ -475,49 +470,15 @@
             <div><b>ORCID:</b> <a href="https://orcid.org/0000-0002-7641-4379" target="_blank" rel="noopener">0000-0002-7641-4379</a></div>
             <div><b>LinkedIn:</b> <span>Ankit Mishra</span> <small>(add URL in code)</small></div>
           </div>
-
-          <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--border); color:var(--muted); font-size:0.95rem;">
-            <b style="color:var(--text);">Interests:</b>
-            <div style="margin-top:6px;">Travels • Rock-Climbing • Gym • Yoga • Movies • Chess</div>
-          </div>
         </aside>
       </div>
     </header>
 
-    <!-- ABOUT (made concrete, not vague) -->
-    <section id="about" aria-label="About">
-      <div class="section-head">
-        <h2>About</h2>
-        <p>What I work on — stated concretely</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="item">
-          <h3>Core research focus</h3>
-          <ul class="clean">
-            <li><b>Spectral & localization theory on networks:</b> eigenvalue statistics, eigenvector localization, finite-size scaling.</li>
-            <li><b>Dynamics on complex systems:</b> traffic/flow processes, congestion transitions, performance metrics under limited resources.</li>
-            <li><b>Strategy + randomness:</b> Parrondo-inspired routing mechanisms in multiplex communication systems.</li>
-            <li><b>Higher-order structure:</b> hypergraphs and the contrast between pairwise vs higher-order interactions.</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <h3>How I work</h3>
-          <ul class="clean">
-            <li>Mathematical modeling → simulation → statistical validation.</li>
-            <li>Build reproducible Python/MATLAB pipelines for experiments and figures.</li>
-            <li>Translate theory into measurable quantities (e.g., localization indicators, spectral diagnostics, routing efficiency).</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESEARCH INTERESTS (new section, as requested) -->
+    <!-- RESEARCH INTERESTS (simple, only the four items you asked for) -->
     <section id="interests" aria-label="Research Interests">
       <div class="section-head">
         <h2>Research Interests</h2>
-        <p>Keywords that describe my work</p>
+        <p>Key topics I work on</p>
       </div>
 
       <div class="pills" aria-label="Interest list">
@@ -525,17 +486,14 @@
         <span class="rpill">Network dynamics</span>
         <span class="rpill">Parrondo’s paradox</span>
         <span class="rpill">Complex systems</span>
-        <span class="rpill">Spectral statistics</span>
-        <span class="rpill">Multiplex routing</span>
-        <span class="rpill">Hypergraphs / higher-order networks</span>
       </div>
     </section>
 
-    <!-- TIMELINE (Experience + Education) -->
+    <!-- TIMELINE (Experience + Education, simple like a tree) -->
     <section id="timeline" aria-label="Timeline">
       <div class="section-head">
         <h2>Timeline</h2>
-        <p>Experience and education (tree-style)</p>
+        <p>Experience and education</p>
       </div>
 
       <div class="grid-2">
@@ -547,12 +505,7 @@
               <div class="t-card">
                 <div class="t-title">Research Fellow</div>
                 <div class="t-org">Nanyang Technological University (NTU), Singapore</div>
-                <div class="t-sub"><span>Mar 2024 – Today</span></div>
-                <ul class="clean">
-                  <li>Modeling incentive-driven auction dynamics on complex networks.</li>
-                  <li>Parrondo-inspired routing strategies for multiplex communication systems.</li>
-                  <li>Eigenvector localization via finite-size scaling in disordered networks and quasi-periodic lattices.</li>
-                </ul>
+                <div class="t-sub"><span>Mar 2024 – Present</span></div>
               </div>
             </div>
 
@@ -561,11 +514,6 @@
                 <div class="t-title">Research Fellow</div>
                 <div class="t-org">Singapore University of Technology and Design (SUTD)</div>
                 <div class="t-sub"><span>Feb 2023 – Feb 2024</span></div>
-                <ul class="clean">
-                  <li>Led numerical experiments, model development, analysis, and manuscript drafting.</li>
-                  <li>Supported PI and guided Research Assistants.</li>
-                  <li>Projects on game theory in network communication, AI, and educational research.</li>
-                </ul>
               </div>
             </div>
 
@@ -574,9 +522,6 @@
                 <div class="t-title">Research Assistant</div>
                 <div class="t-org">Singapore University of Technology and Design (SUTD)</div>
                 <div class="t-sub"><span>Aug 2022 – Feb 2023</span></div>
-                <ul class="clean">
-                  <li>Research on game theory and applications in network dynamics.</li>
-                </ul>
               </div>
             </div>
           </div>
@@ -589,73 +534,57 @@
             <div class="t-item">
               <div class="t-card">
                 <div class="t-title">Ph.D. in Physics</div>
-                <div class="t-org">IIT Indore, India</div>
-                <div class="t-sub"><span>2017 – 2022</span> • Thesis: Localization in Complex Networks</div>
+                <div class="t-org">Indian Institute of Technology (IIT) Indore, India</div>
+                <div class="t-sub"><span>2017 – 2022</span></div>
               </div>
             </div>
 
             <div class="t-item">
               <div class="t-card">
                 <div class="t-title">M.Sc. in Physics</div>
-                <div class="t-org">IIT Indore, India</div>
-                <div class="t-sub"><span>2015 – 2017</span> • Thesis: Statistical analysis of complex networks</div>
+                <div class="t-org">Indian Institute of Technology (IIT) Indore, India</div>
+                <div class="t-sub"><span>2015 – 2017</span></div>
               </div>
             </div>
-          </div>
-
-          <div style="margin-top:14px; border-top:1px solid var(--border); padding-top:14px; color:var(--muted);">
-            <b style="color:var(--text);">Note:</b> If you want, I can add a third timeline block for “Key Papers” (year → paper card), matching the same style.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS (new) -->
+    <!-- PROJECTS -->
     <section id="projects" aria-label="Projects">
       <div class="section-head">
         <h2>Projects</h2>
-        <p>Selected research directions (readable summaries)</p>
+        <p>Selected research directions</p>
       </div>
 
       <div class="grid-2">
         <div class="item">
-          <h3>Parrondo-inspired routing in multiplex systems</h3>
+          <h3>Parrondo-inspired routing in networks</h3>
           <p>
-            Designing switching/alternating routing rules where two individually suboptimal choices can yield improved global performance
-            when combined (Parrondo mechanism), and testing this under congestion and limited resources.
-          </p>
-          <p style="margin-top:10px;">
-            <a href="https://doi.org/10.1103/PhysRevResearch.6.L012037" target="_blank" rel="noopener">Related paper (PRR Letter)</a>
+            Routing strategies in which alternating between individually poor options
+            can improve overall network performance, inspired by Parrondo’s paradox.
           </p>
         </div>
 
         <div class="item">
-          <h3>Traffic management with limited resources</h3>
+          <h3>Traffic management under limited resources</h3>
           <p>
-            Studying congestion transitions and efficiency under constrained capacity, and developing strategies that re-balance load dynamically
-            (e.g., switching rules) to reduce bottlenecks.
-          </p>
-          <p style="margin-top:10px;">
-            <a href="https://doi.org/10.1016/j.chaos.2024.114658" target="_blank" rel="noopener">Related paper (Chaos, Solitons & Fractals)</a>
+            Study of congestion and efficiency in networks when capacity and resources are constrained.
           </p>
         </div>
 
         <div class="item">
-          <h3>Eigenvector localization & finite-size scaling</h3>
+          <h3>Eigenvector localization and scaling</h3>
           <p>
-            Quantifying how localization changes with system size and disorder strength, and identifying regimes where eigenvectors concentrate
-            on small node sets versus delocalized behavior.
+            Analysis of how localization of eigenvectors behaves when network size and disorder are varied.
           </p>
         </div>
 
         <div class="item">
-          <h3>Hypergraphs: pairwise vs higher-order links</h3>
+          <h3>Complex systems and network dynamics</h3>
           <p>
-            Comparing spectral localization under conventional edges versus higher-order interactions, and measuring how higher-order structure
-            changes localization tendencies.
-          </p>
-          <p style="margin-top:10px;">
-            <a href="https://doi.org/10.1103/PhysRevE.107.034311" target="_blank" rel="noopener">Related paper (PRE)</a>
+            Models of dynamical processes on complex networks, with an emphasis on transitions and stability.
           </p>
         </div>
       </div>
@@ -665,7 +594,7 @@
     <section id="publications" aria-label="Publications">
       <div class="section-head">
         <h2>Publications</h2>
-        <p>Search + filter</p>
+        <p>Search and filter</p>
       </div>
 
       <div class="pubtools" role="group" aria-label="Publication controls">
@@ -767,89 +696,27 @@
       </div>
     </section>
 
-    <!-- SKILLS (removed "research strengths") -->
-    <section id="skills" aria-label="Skills">
-      <div class="section-head">
-        <h2>Skills</h2>
-        <p>Tools and competencies</p>
-      </div>
-
-      <div class="grid-3">
-        <div class="item">
-          <h3>Languages</h3>
-          <ul class="clean">
-            <li>English (fluent)</li>
-            <li>Hindi (fluent)</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <h3>Coding</h3>
-          <ul class="clean">
-            <li>Python</li>
-            <li>MATLAB</li>
-            <li>LaTeX</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <h3>Statistics & Plotting</h3>
-          <ul class="clean">
-            <li>R</li>
-            <li>Grace</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <h3>Network Science</h3>
-          <ul class="clean">
-            <li>Cytoscape</li>
-            <li>NetworkX</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <h3>Operating Systems</h3>
-          <ul class="clean">
-            <li>Ubuntu</li>
-            <li>Windows</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <h3>Workflow</h3>
-          <ul class="clean">
-            <li>Reproducible simulations</li>
-            <li>Model → experiment → paper pipeline</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT (phone removed, as requested) -->
+    <!-- CONTACT (simple, no extra sentences, no phone) -->
     <section id="contact" aria-label="Contact">
       <div class="section-head">
         <h2>Contact</h2>
-        <p>Best channel: email</p>
+        <p>Get in touch</p>
       </div>
 
       <div class="grid-2">
         <div class="item">
           <h3>Email</h3>
           <p><a href="mailto:ankitphy0592@gmail.com">ankitphy0592@gmail.com</a></p>
-          <p style="color:var(--faint);">Collaboration, talks, papers, and research discussions.</p>
         </div>
 
         <div class="item">
           <h3>ORCID</h3>
           <p><a href="https://orcid.org/0000-0002-7641-4379" target="_blank" rel="noopener">0000-0002-7641-4379</a></p>
-          <p style="color:var(--faint);">Publications and author record.</p>
         </div>
 
         <div class="item">
           <h3>LinkedIn</h3>
           <p>Ankit Mishra</p>
-          <p style="color:var(--faint);">Add your exact profile URL in the code to make it clickable.</p>
         </div>
 
         <div class="item">
@@ -860,10 +727,10 @@
     </section>
 
     <div class="footer">
-      <div>© <span id="year"></span> Dr. Ankit Mishra • GitHub Pages</div>
+      <div>© <span id="year"></span> Ankit Mishra • GitHub Pages</div>
       <div style="margin-top:6px;">
-        <span style="font-family:var(--mono); color:var(--faint);">Tip:</span>
-        <span style="color:var(--muted);">upload CV as <b>CV_Ankit.pdf</b> in repo root for the button to work.</span>
+        <span style="font-family:var(--mono); color:var(--faint);">CV:</span>
+        <span style="color:var(--muted);">upload <b>CV_Ankit.pdf</b> in the repository root to enable the Download button.</span>
       </div>
     </div>
   </div>
